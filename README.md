@@ -1,2 +1,1 @@
-# Sprint_7
-# Diplom2
+Diplom2
