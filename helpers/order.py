@@ -8,7 +8,7 @@ from data.order import InfoAboutOrder
 from .common import Generators
 
 
-class OrderHelps(Generators): # OrderAPIHelper(Generators)
+class OrderHelps(Generators):
     @allure.step("Отправка запроса для создания заказа в системе")
     def send_request_create(self, data, headers=None):
         return requests.request(

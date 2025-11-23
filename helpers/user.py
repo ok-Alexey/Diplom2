@@ -5,7 +5,7 @@ from data.user import UserData
 from .common import Generators
 
 
-class UserHelps(Generators): # UserAPIHelper
+class UserHelps(Generators):
     @allure.step("Отправка запроса для регистрирования пользователя в системе")
     def send_request_create(self, data):
         return requests.request(
@@ -41,7 +41,7 @@ class UserHelps(Generators): # UserAPIHelper
         return headers
 
     @allure.step("Создание тестовых данных пользователя")
-    def generate_data_for_create_user(self, keys=None): # def generate_user_create_data
+    def generate_data_for_create_user(self, keys=None):
         name = self.generate_random_string(23)
         password = self.generate_random_string(23)
         email = f"{self.generate_random_string(15)}@{self.generate_random_string(15)}notexists.com"

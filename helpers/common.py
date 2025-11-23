@@ -4,7 +4,7 @@ import string
 import allure
 
 
-class Generators: # CommonApiHelper
+class Generators:
     @allure.step("Создание случайных значений {length} шт.")
     def generate_random_string(self, length=10):
         letters = string.ascii_lowercase
