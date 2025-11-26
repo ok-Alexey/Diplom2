@@ -39,10 +39,11 @@ class TestOrderCreate:
 
         user_api = UserHelps()
         headers = user_api.get_headers_auth_user()
-
+        
         order_api = OrderHelps()
         data = order_api.generate_order_create_data()
         response = order_api.send_request_create(data, headers=headers)
 
         assert response.status_code == 200
         assert response.json().get("success")
+        assert headers["Authorization"] != None

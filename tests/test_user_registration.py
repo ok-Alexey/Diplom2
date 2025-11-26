@@ -11,8 +11,10 @@ class TestUserCreate:
         user_api = UserHelps()
         data = user_api.generate_data_for_create_user(keys=["name", "email", "password"])
         response = user_api.send_request_create(data)
+        headers = user_api.get_headers_auth_user()
         assert response.status_code == 200
         assert response.json().get("success")
+        assert headers["Authorization"] != None
 
     @allure.title("Создать пользователя, который уже зарегистрирован нельзя")
     def test_user_create_account_shows_ok_false_403(self):

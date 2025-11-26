@@ -11,8 +11,10 @@ class TestUserLogin:
         user_api = UserHelps()
         data = user_api.data_random_new_user_account()
         response = user_api.send_request_login(data)
+        headers = user_api.get_headers_auth_user()
         assert response.status_code == 200
         assert response.json().get("success")
+        assert headers["Authorization"] != None
 
     @pytest.mark.parametrize(
         "test_case, keys",
